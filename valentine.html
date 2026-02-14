@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Quicksand:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-soft: #FFB6D9;
+            --pink-medium: #FF8CC6;
+            --pink-bright: #FF3FA4;
+            --pink-dark: #D91A7A;
+            --purple-soft: #E0BBE4;
+            --purple-medium: #D291BC;
+            --peach: #FEC8D8;
+            --cream: #FFF5E4;
+            --yellow-soft: #FFDAB9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #FFE5EC 0%, #FFC9DE 25%, #FFB3D9 50%, #D4A5D9 75%, #C490D1 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Cute animated background elements */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 100px;
+            animation: float-cloud 20s infinite ease-in-out;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 100px;
+        }
+
+        .cloud-1 {
+            width: 120px;
+            height: 40px;
+            top: 10%;
+            left: -150px;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+
+        .cloud-1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud-1::after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+            right: 15px;
+        }
+
+        .cloud-2 {
+            width: 100px;
+            height: 35px;
+            top: 30%;
+            left: -120px;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+
+        .cloud-2::before {
+            width: 45px;
+            height: 45px;
+            top: -20px;
+            left: 8px;
+        }
+
+        .cloud-2::after {
+            width: 50px;
+            height: 35px;
+            top: -12px;
+            right: 12px;
+        }
+
+        .cloud-3 {
+            width: 140px;
+            height: 45px;
+            top: 60%;
+            left: -160px;
+            animation-delay: 10s;
+            animation-duration: 35s;
+        }
+
+        .cloud-3::before {
+            width: 55px;
+            height: 55px;
+            top: -28px;
+            left: 12px;
+        }
+
+        .cloud-3::after {
+            width: 65px;
+            height: 45px;
+            top: -18px;
+            right: 18px;
+        }
+
+        @keyframes float-cloud {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(100vw + 200px));
+            }
+        }
+
+        .star {
+            position: absolute;
+            font-size: 20px;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .heart-float {
+            position: absolute;
+            font-size: 25px;
+            animation: rise 8s infinite ease-in;
+            opacity: 0;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Decorative elements */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle-anim 1.5s infinite ease-in-out;
+        }
+
+        @keyframes sparkle-anim {
+            0%, 100% { 
+                opacity: 0; 
+                transform: scale(0);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            width: 95%;
+            margin: 20px;
+        }
+
+        .page {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 
+                0 25px 80px rgba(255, 61, 164, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            animation: pageIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, 
+                var(--pink-bright) 0%, 
+                var(--purple-medium) 50%, 
+                var(--pink-bright) 100%);
+            border-radius: 30px 30px 0 0;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes pageIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px) scale(0.95);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Page 1: Claw Machine */
+        .title {
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            color: var(--pink-dark);
+            margin-bottom: 15px;
+            font-size: 3em;
+            text-shadow: 3px 3px 0 rgba(255, 182, 217, 0.5);
+            animation: titleBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes titleBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 35px;
+            font-size: 1.2em;
+            font-family: 'Caveat', cursive;
+        }
+
+        .arcade-frame {
+            background: linear-gradient(to bottom, #FF69B4, #FF1493);
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 
+                0 20px 60px rgba(255, 20, 147, 0.4),
+                inset 0 -5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 550px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .arcade-frame::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 3px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .arcade-header {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Pacifico', cursive;
+            color: #fff;
+            font-size: 1.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5); }
+            to { box-shadow: 0 5px 25px rgba(255, 215, 0, 0.8); }
+        }
+
+        .game-screen {
+            background: linear-gradient(to bottom, #FFE4F6, #FFB3E6);
+            border-radius: 15px;
+            height: 380px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 5px solid #FF69B4;
+        }
+
+        /* Claw mechanism */
+        .claw-cable {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 70px;
+            background: repeating-linear-gradient(
+                0deg,
+                #333 0px,
+                #333 8px,
+                transparent 8px,
+                transparent 12px
+            );
+            transform: translateX(-50%);
+            transition: height 1.5s ease-in-out;
+            z-index: 5;
+        }
+
+        .claw-head {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 1.5s ease-in-out;
+            z-index: 6;
+        }
+
+        .claw-top {
+            width: 50px;
+            height: 20px;
+            background: linear-gradient(to bottom, #666, #333);
+            border-radius: 8px;
+            margin: 0 auto;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .claw-arms {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .claw-arm {
+            width: 20px;
+            height: 35px;
+            background: linear-gradient(135deg, #888, #555);
+            border-radius: 0 0 8px 8px;
+            transform: rotate(0deg);
+            transition: transform 0.5s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .claw-arm.left {
+            transform-origin: top right;
+        }
+
+        .claw-arm.right {
+            transform-origin: top left;
+        }
+
+        .claw-head.grabbing .claw-arm.left {
+            transform: rotate(-25deg);
+        }
+
+        .claw-head.grabbing .claw-arm.right {
+            transform: rotate(25deg);
+        }
+
+        .prize-container {
+            position: absolute;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .love-box {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #FF1493, #FF69B4);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5em;
+            box-shadow: 
+                0 10px 30px rgba(255, 20, 147, 0.5),
+                inset 0 -3px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            animation: boxFloat 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .love-box::before {
+            content: '✨';
+            position: absolute;
+            top: -15px;
+            right: -10px;
+            font-size: 0.4em;
+            animation: sparkleRotate 2s linear infinite;
+        }
+
+        @keyframes boxFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes sparkleRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .love-box:hover {
+            transform: scale(1.05);
+        }
+
+        .love-box.caught {
+            animation: getCaught 2s ease-in-out forwards;
+        }
+
+        @keyframes getCaught {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            30% {
+                transform: scale(0.9);
+            }
+            60% {
+                transform: scale(0.7) translateY(-300px);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0) translateY(-350px);
+                opacity: 0;
+            }
+        }
+
+        .play-button {
+            display: block;
+            margin: 25px auto 0;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #FF1493, #FF69B4);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.4em;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 
+                0 8px 20px rgba(255, 20, 147, 0.4),
+                0 0 0 3px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .play-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 12px 30px rgba(255, 20, 147, 0.6),
+                0 0 0 4px rgba(255, 255, 255, 0.4);
+        }
+
+        .play-button:active {
+            transform: translateY(-1px);
+        }
+
+        .play-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        /* Page 2: Love Letter */
+        .letter-wrapper {
+            max-width: 650px;
+            margin: 40px auto;
+            perspective: 1200px;
+        }
+
+        .mail-envelope {
+            width: 100%;
+            height: 320px;
+            position: relative;
+            background: linear-gradient(135deg, #FFE4E1, #FFD1DC);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .envelope-lid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: top center;
+            transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 3;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .envelope-lid::after {
+            content: '💌';
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5em;
+            filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
+        }
+
+        .mail-envelope.open .envelope-lid {
+            transform: rotateX(-180deg);
+        }
+
+        .letter-paper {
+            position: absolute;
+            top: 30px;
+            left: 8%;
+            width: 84%;
+            background: 
+                linear-gradient(90deg, transparent 0, transparent 39px, #FFE4E1 40px),
+                linear-gradient(#FFF5F0 0.1em, transparent 0.1em);
+            background-size: 100% 1.5em;
+            padding: 30px;
+            border-radius: 8px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+
+        .mail-envelope.open .letter-paper {
+            top: 340px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .letter-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1.15em;
+            line-height: 1.5em;
+            color: #333;
+            padding-left: 15px;
+        }
+
+        .letter-text p {
+            margin-bottom: 1em;
+        }
+
+        .letter-text p:first-child {
+            font-weight: 700;
+            color: var(--pink-dark);
+            font-size: 1.15em;
+        }
+
+        .open-btn, .continue-btn {
+            display: block;
+            margin: 25px auto;
+            padding: 16px 45px;
+            background: linear-gradient(135deg, #FF1493, #FF69B4);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        .open-btn:hover, .continue-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 20, 147, 0.6);
+        }
+
+        .continue-btn {
+            display: none;
+            margin-top: 580px;
+        }
+
+        .continue-btn.show {
+            display: block;
+        }
+
+        /* Page 3: Question */
+        .question-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .question-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.8em;
+            color: var(--pink-dark);
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 0 rgba(255, 182, 217, 0.5);
+        }
+
+        .answer-options {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .option-btn {
+            padding: 25px 60px;
+            font-size: 1.8em;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .yes-option {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: white;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+        }
+
+        .yes-option:hover {
+            transform: scale(1.15) rotate(-2deg);
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.6);
+        }
+
+        .no-option {
+            background: linear-gradient(135deg, #f44336, #e91e63);
+            color: white;
+            box-shadow: 0 10px 30px rgba(244, 67, 54, 0.4);
+        }
+
+        .no-option:hover {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .plea-text {
+            display: none;
+            margin-top: 30px;
+            font-family: 'Caveat', cursive;
+            font-size: 1.8em;
+            color: var(--pink-dark);
+            animation: pleaPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pleaPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        /* Page 4: Final */
+        .final-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .love-declaration {
+            font-family: 'Pacifico', cursive;
+            font-size: 4em;
+            background: linear-gradient(135deg, #FF1493, #FF69B4, #FF1493);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 50px;
+            animation: gradientMove 3s ease infinite, heartPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            15%, 35% { transform: scale(1.1); }
+            25%, 45% { transform: scale(1); }
+        }
+
+        .character-display {
+            font-size: 12em;
+            animation: characterBounce 2.5s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(255, 105, 180, 0.3));
+        }
+
+        @keyframes characterBounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-25px) rotate(-5deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .thank-message {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.8em;
+            color: var(--pink-dark);
+            margin-top: 40px;
+            font-weight: 600;
+        }
+
+        /* Confetti effect */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--pink-bright);
+            position: absolute;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2em;
+            }
+
+            .page {
+                padding: 30px 20px;
+            }
+
+            .question-title {
+                font-size: 2em;
+            }
+
+            .option-btn {
+                padding: 20px 40px;
+                font-size: 1.4em;
+            }
+
+            .love-declaration {
+                font-size: 2.5em;
+            }
+
+            .character-display {
+                font-size: 8em;
+            }
+
+            .answer-options {
+                flex-direction: column;
+            }
+        }
+
+        /* Custom scrollbar */
+        .letter-paper::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .letter-paper::-webkit-scrollbar-track {
+            background: #FFE4E1;
+            border-radius: 10px;
+        }
+
+        .letter-paper::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #FF69B4, #FF1493);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background decorations -->
+    <div class="bg-decoration">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+    </div>
+
+    <div class="container">
+        <!-- Page 1: Claw Machine -->
+        <div class="page active" id="page1">
+            <h1 class="title">Love Catcher 💕</h1>
+            <p class="subtitle">Tangkap cinta untuk membuka pesan spesial untukmu...</p>
+            
+            <div class="arcade-frame">
+                <div class="arcade-header">🎯 Catch The Love 🎯</div>
+                <div class="game-screen">
+                    <div class="claw-cable" id="clawCable"></div>
+                    <div class="claw-head" id="clawHead">
+                        <div class="claw-top"></div>
+                        <div class="claw-arms">
+                            <div class="claw-arm left"></div>
+                            <div class="claw-arm right"></div>
+                        </div>
+                    </div>
+                    <div class="prize-container" id="prizeContainer">
+                        <div class="love-box">❤️</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="play-button" id="playButton">
+                🕹️ Main Sekarang!
+            </button>
+        </div>
+
+        <!-- Page 2: Love Letter -->
+        <div class="page" id="page2">
+            <h1 class="title">Surat Untukmu 💌</h1>
+            
+            <div class="letter-wrapper">
+                <div class="mail-envelope" id="mailEnvelope">
+                    <div class="envelope-lid"></div>
+                    <div class="letter-paper">
+                        <div class="letter-text">
+                            <p>My beloved,</p>
+                            
+                            <p>Every moment with you feels like a gentle miracle that my heart never gets tired of believing in. Even in silence, you understand me in ways words never could, and that is where I find my deepest peace.</p>
+                            
+                            <p>Your smile is my favorite place to return to after long and tiring days, and your presence makes ordinary moments feel extraordinary. I love how you make me want to be better, not because you ask me to, but because loving you inspires me naturally.</p>
+                            
+                            <p>On this Valentine's Day, I don't just celebrate love—I celebrate you, the one my heart chooses every single day. And no matter where life leads us, I promise my love will always find its way back to you.</p>
+                            
+                            <p>Even though distance separates us and we are living this long-distance journey, my trust in you never fades. I believe in us, in our commitment, and in the love we choose every day despite the miles between us.</p>
+                            
+                            <p>Our calls, our late-night conversations, and our simple "have you eaten?" messages make the distance feel smaller. Knowing that we still check on each other reminds me that love is not about proximity, but about consistency.</p>
+                            
+                            <p>I find comfort in hearing your voice and strength in knowing you are always there for me. Until the day we meet again, I will keep choosing you, just as I know you choose me too.</p>
+                            
+                            <p style="text-align: right; margin-top: 40px; font-size: 1.15em; color: var(--pink-dark);">
+                                With all my love,<br>
+                                Forever yours 💕
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="open-btn" id="openButton">📬 Buka Suratnya</button>
+            <button class="continue-btn" id="continueButton">Lanjut ➡️</button>
+        </div>
+
+        <!-- Page 3: Question -->
+        <div class="page" id="page3">
+            <div class="question-section">
+                <h2 class="question-title">Satu Pertanyaan Terakhir...</h2>
+                <h1 style="font-family: 'Pacifico', cursive; font-size: 2.5em; color: var(--pink-bright); margin-top: 30px;">
+                    Will you be my Valentine? 💝
+                </h1>
+                
+                <div class="answer-options">
+                    <button class="option-btn yes-option" id="yesButton">YES! 💕</button>
+                    <button class="option-btn no-option" id="noButton">No</button>
+                </div>
+                
+                <p class="plea-text" id="pleaText">
+                    🥺 Pliss say yess my love... 💕
+                </p>
+            </div>
+        </div>
+
+        <!-- Page 4: Final Message -->
+        <div class="page" id="page4">
+            <div class="final-section">
+                <h1 class="love-declaration">I LOVEE YOUUU!</h1>
+                <div class="character-display">🧸</div>
+                <p class="thank-message">Thank you for being mine! 💖</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create animated background elements
+        function createBackgroundElements() {
+            const bgDecoration = document.querySelector('.bg-decoration');
+            
+            // Create floating hearts
+            for (let i = 0; i < 12; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.textContent = ['💕', '💖', '💗', '💝', '❤️'][Math.floor(Math.random() * 5)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 8 + 's';
+                heart.style.fontSize = (Math.random() * 15 + 20) + 'px';
+                bgDecoration.appendChild(heart);
+            }
+
+            // Create twinkling stars
+            for (let i = 0; i < 20; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.textContent = '✨';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                star.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                bgDecoration.appendChild(star);
+            }
+
+            // Create sparkles
+            for (let i = 0; i < 30; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 1.5 + 's';
+                bgDecoration.appendChild(sparkle);
+            }
+        }
+
+        createBackgroundElements();
+
+        // Page 1: Claw Machine
+        const playButton = document.getElementById('playButton');
+        const clawCable = document.getElementById('clawCable');
+        const clawHead = document.getElementById('clawHead');
+        const prizeContainer = document.getElementById('prizeContainer');
+        const loveBox = prizeContainer.querySelector('.love-box');
+
+        playButton.addEventListener('click', function() {
+            playButton.disabled = true;
+            playButton.textContent = '🎯 Menangkap...';
+            
+            // Extend cable and move claw down
+            clawCable.style.height = '250px';
+            clawHead.style.top = '250px';
+            
+            setTimeout(() => {
+                // Close claw arms (grab)
+                clawHead.classList.add('grabbing');
+                
+                setTimeout(() => {
+                    // Lift prize with claw
+                    clawCable.style.height = '70px';
+                    clawHead.style.top = '70px';
+                    prizeContainer.style.bottom = '300px';
+                    
+                    setTimeout(() => {
+                        // Prize caught animation
+                        loveBox.classList.add('caught');
+                        
+                        setTimeout(() => {
+                            // Transition to next page
+                            document.getElementById('page1').classList.remove('active');
+                            document.getElementById('page2').classList.add('active');
+                        }, 2000);
+                    }, 1000);
+                }, 800);
+            }, 1500);
+        });
+
+        // Page 2: Love Letter
+        const openButton = document.getElementById('openButton');
+        const mailEnvelope = document.getElementById('mailEnvelope');
+        const continueButton = document.getElementById('continueButton');
+
+        openButton.addEventListener('click', function() {
+            mailEnvelope.classList.add('open');
+            openButton.style.display = 'none';
+            
+            setTimeout(() => {
+                continueButton.classList.add('show');
+            }, 1500);
+        });
+
+        continueButton.addEventListener('click', function() {
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('page3').classList.add('active');
+        });
+
+        // Page 3: Question
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const pleaText = document.getElementById('pleaText');
+
+        noButton.addEventListener('click', function() {
+            pleaText.style.display = 'block';
+        });
+
+        yesButton.addEventListener('click', function() {
+            // Create confetti
+            for (let i = 0; i < 100; i++) {
+                createConfetti();
+            }
+            
+            setTimeout(() => {
+                document.getElementById('page3').classList.remove('active');
+                document.getElementById('page4').classList.add('active');
+            }, 500);
+        });
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = '-10px';
+            confetti.style.background = ['#FF69B4', '#FF1493', '#FFB6C1', '#FFC0CB', '#FF6B9D'][Math.floor(Math.random() * 5)];
+            confetti.style.animationDelay = Math.random() * 0.5 + 's';
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
